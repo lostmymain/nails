@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #FAF8F5;
+  --milk: #F5F0E8;
+  --sand: #E8E0D0;
+  --latte: #C8B89A;
+  --coffee: #8B6F47;
+  --espresso: #4A3728;
+  --graphite: #2C2C2C;
+  --charcoal: #1A1A1A;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cream);
+  color: var(--charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--latte);
+  border-radius: 4px;
+}
+
+/* Smooth transitions */
+.transition-all-300 {
+  transition: all 0.3s ease;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(250, 248, 245, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Input focus */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+}
+
+/* Mobile app feel */
+@media (max-width: 768px) {
+  body {
+    overscroll-behavior: none;
+  }
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Custom checkbox */
+.custom-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--latte);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.custom-radio:checked {
+  border-color: var(--coffee);
+  background: var(--coffee);
+}
+
+.custom-radio:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
